@@ -8,6 +8,9 @@ public class Customer {
         startTime=c;
         items=r.nextInt(1,p+1);
     }
+    public int getItems(){
+        return items;
+    }
     public int getServeTime(){
         return items*perItem;
     }
