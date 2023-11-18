@@ -2,8 +2,10 @@ import java.util.*;
 public class Line {
     private int internalClock;
     private int numServed;
+    private int itemTotal;
     private int waiting;
     private int currentFreeTime;
+    private int freeTimeTotal;
     private int maxCus;
     private int hourMark;
     private int cusCurrentHour;
@@ -20,9 +22,11 @@ public class Line {
         hourMark=0;
         cusCurrentHour=0;
         numServed=0;
+        itemTotal=0;
         waiting=0;
         currentFreeTime=0;
         maxCus=0;
+        freeTimeTotal=0;
         lane=new LinkedList<>();
         waitTimes=new LinkedList<>();
         freeTimes=new LinkedList<>();
@@ -44,6 +48,7 @@ public class Line {
         hourMark+=cus.getServeTime();
         waiting--;
         numServed++;
+        itemTotal+=cus.getItems();
         cusCurrentHour++;
         itemCurrentHour+=cus.getItems();
         checkHourMark();
@@ -60,6 +65,9 @@ public class Line {
     }
     public int getNumServed(){
         return numServed;
+    }
+    public int getItemTotal(){
+        return itemTotal;
     }
     public int getInternalClock(){
         return internalClock;
@@ -93,8 +101,12 @@ public class Line {
     private void addFreeTime(){
         if(currentFreeTime!=0){
             freeTimes.offer(currentFreeTime);
+            freeTimeTotal+=currentFreeTime;
             currentFreeTime=0;
         }
+    }
+    public int getTotalFreeTime(){
+        return (freeTimeTotal/60);
     }
     //Returns average wait in minutes
     public double getAverageWait(){
