@@ -1,3 +1,7 @@
+package ShoppingQueue;
+
+import ShoppingQueue.Customer;
+
 import java.util.*;
 public class Line {
     private int internalClock;

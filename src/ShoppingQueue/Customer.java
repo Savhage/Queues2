@@ -1,3 +1,5 @@
+package ShoppingQueue;
+
 import java.util.Random;
 public class Customer {
     int items;

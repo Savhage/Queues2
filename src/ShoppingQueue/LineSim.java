@@ -1,3 +1,8 @@
+package ShoppingQueue;
+
+import ShoppingQueue.Customer;
+import ShoppingQueue.Line;
+
 import java.util.*;
 public class LineSim {
     int numStandLines;
@@ -33,13 +38,13 @@ public class LineSim {
         int hours=input.nextInt();
         maxSimTime=hours*3600;
 
-        System.out.print("How many Customer will check out per hour" +
+        System.out.print("How many ShoppingQueue.Customer will check out per hour" +
                 "\n(Must be more than 60): ");
         int perHour=input.nextInt();
         int perMinute=perHour/60;
         arrivalRate=60/perMinute;
 
-        System.out.print("What is the maximum number of items a Customer can have: ");
+        System.out.print("What is the maximum number of items a ShoppingQueue.Customer can have: ");
         maxItems=input.nextInt();
 
         System.out.print("How many Standard Lines are open: ");
@@ -89,7 +94,7 @@ public class LineSim {
             lanes.add(newLine);
         }
     }
-    //Add Customer if the clock is divisible evenly by the arrival rate
+    //Add ShoppingQueue.Customer if the clock is divisible evenly by the arrival rate
     private void addCus(){
         if(clock%arrivalRate==0){
             Customer newCus=new Customer(clock,maxItems);
@@ -172,7 +177,7 @@ public class LineSim {
         System.out.println( "\nSuper Express Lane:"+
                             "\nTotal Customers Served: "+ lanes.get(0).getNumServed()+
                             "\nAverage Wait Time: "+  String.format("%.2f Minutes",wait)+
-                            "\nMaximum Length of Line: "+ maxLength+
+                            "\nMaximum Length of ShoppingQueue.Line: "+ maxLength+
                             "\nNumber of Customers Served Per Hour: "+ cusPerHour+
                             "\nTotal Items Processed: "+ lanes.get(0).getItemTotal()+
                             "\nNumber of Items Processed Per Hour: "+ itemsPerHour+
@@ -193,7 +198,7 @@ public class LineSim {
         System.out.println( "Express Lane:"+n+":"+
                 "\nTotal Customers Served: "+ lanes.get(n).getNumServed()+
                 "\nAverage Wait Time: "+  String.format("%.2f Minutes",wait)+
-                "\nMaximum Length of Line: "+ maxLength+
+                "\nMaximum Length of ShoppingQueue.Line: "+ maxLength+
                 "\nNumber of Customers Served Per Hour: "+ cusPerHour+
                 "\nTotal Items Processed: "+ lanes.get(n).getItemTotal()+
                 "\nNumber of Items Processed Per Hour: "+ itemsPerHour+
@@ -218,7 +223,7 @@ public class LineSim {
             System.out.println( "Regular Lane "+i+":"+
                     "\nTotal Customers Served: "+ lanes.get(i).getNumServed()+
                     "\nAverage Wait Time: "+  String.format("%.2f Minutes",wait)+
-                    "\nMaximum Length of Line: "+ maxLength+
+                    "\nMaximum Length of ShoppingQueue.Line: "+ maxLength+
                     "\nNumber of Customers Served Per Hour: "+ cusPerHour+
                     "\nTotal Items Processed: "+ lanes.get(i).getItemTotal()+
                     "\nNumber of Items Processed Per Hour: "+ itemsPerHour+
